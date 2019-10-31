@@ -21,7 +21,7 @@ Secure Notes is a web application, which encrypts your Notes using aes256 and th
   - Add the repo files into /var/www/html *if you are using Linux with apache*(Highly recommended)
   - Add the repo files inside c:\xampp\htdocs\ *if you are using xamp on Windows*(Not recommended)
 
-⌨️ Make the necessary changes inside the config.php file.
+⌨️ Make the necessary changes inside the **config.php** file.
 
 -----------------
 
