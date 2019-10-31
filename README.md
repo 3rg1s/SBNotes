@@ -26,3 +26,12 @@ Secure Notes is a web application, which encrypts your Notes using aes256 and th
 -----------------
 
 # ⛔ Please Assume there may be a vulnerability in the code, as the web app is not tested yet for such.
+
+
+
+
+
+TODO:
+ - Add some files inside Folder to not look this messy.
+ - Make the input tags focused when there is only one left.
+ - Add to the change password the to ask for the current password.
