@@ -18,5 +18,5 @@ Secure Notes is a web application, which encrypts your Notes using aes256 and th
 
 🏠 Download the repo locally by using the download button or by typing on your terminal `git clone repolink`  
   
-  -Add the repo files into /var/www/html *if you are using Linux with apache*(Highly recommended)
-  -Add the repo files inside c:\xampp\htdocs\ *if you are using xamp on Windows*(Not recommended)
+  - Add the repo files into /var/www/html *if you are using Linux with apache*(Highly recommended)
+  - Add the repo files inside c:\xampp\htdocs\ *if you are using xamp on Windows*(Not recommended)
