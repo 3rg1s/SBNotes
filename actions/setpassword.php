@@ -10,17 +10,17 @@
 </head>
 <body onload="checkpass()">
    <?php
- include 'navigator.php';
+ include '../navigator.php';
  ?>
 <div class="container">
   <div class="row">
     <div class="col-sm">
 <div class="alert alert-info" role="alert">
-  Set your password encryption password, this is would never be seen by us, so store it in a safe place!
+  Set your encryption password, this would never be send to our servers, Please store it in a safe place!
 </div>
 <form>
   <div class="form-group">
-      Password: <input type="text" id="Pass" size="20" name="fname"><br>
+      Password: <input autofocus type="text" id="Pass" size="" required><br>
       <br>
    <button  type="button" class="btn btn-primary" onclick="setPass()" >Set password</button>
   </div>

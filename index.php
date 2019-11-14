@@ -40,8 +40,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         }
     ?>
     <div class="page-header">
-        <h1>Hi, <b></b> Welcome to SBNotes by Ergis</h1>
-        If you want a to see on how to use this web app, please send an email : ehotza35 [at] gmail [dot] com
+        <h1>Hi, <b></b> Welcome to SBNotes 🗒️</h1>
+        Please send a email to our main developer at : ehotza35 [at] gmail [dot] com , if you have any questions!
     </div>
 
         <?php
@@ -66,7 +66,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         .then((result) => {
             if (result.value) {
                 $.ajax({
-                url: "http://192.168.1.21/univproj/generatecode.php",
+                url: "/actions/generatecode.php",
                 type: "GET",
                 success: function(){
                     swal.fire({

@@ -29,7 +29,7 @@
 <h1 class="display-1"> Your Notes </h1>
 <br>
   <div class="alert alert-info">
-    If there is a space between your notes or no notes show at all,  <strong>  That means you gave a invalid decryption password!
+    If there is a space between your notes or no notes show at all,  <strong>  That means you gave an invalid password, please make sure it is correct. <a href="actions/setpassword.php">Set Again!</a>
 </strong>
   </div>
 

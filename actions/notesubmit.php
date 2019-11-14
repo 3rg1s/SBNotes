@@ -6,7 +6,7 @@ $username = $_SESSION["username"];
 
 $note = $_POST["note"];
 
-require_once "config.php";
+require_once "../config.php";
 
 $sql = "INSERT INTO snotes (note,ownedby) VALUES (?,?)";
 
@@ -17,7 +17,7 @@ $sql = "INSERT INTO snotes (note,ownedby) VALUES (?,?)";
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: view.php");
+                header("location: ../view.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }

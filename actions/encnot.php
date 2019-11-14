@@ -14,7 +14,7 @@
 </head>
 <body>
    <?php
- include 'navigator.php';
+ include '../navigator.php';
  ?>
 <form>
   <div class="form-group">
@@ -66,7 +66,7 @@ $.ajax({
         timer: 100
     });
       setTimeout(function(){
-       window.location.replace("view.php");
+       window.location.replace("../view.php");
       }, 1000);
   }
 
