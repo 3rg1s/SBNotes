@@ -34,3 +34,4 @@
  - Add to the change password the to ask for the current password.
  - Learn some more git.
  - Fix navigator file.
+ - Add support for smartphones
