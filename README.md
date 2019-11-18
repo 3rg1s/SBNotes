@@ -35,4 +35,3 @@
  - Learn some more git.
  - Fix navigator file.
  - Add support for smartphones.
- - Make website responsive to tables, and smartphones.
