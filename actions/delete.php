@@ -26,7 +26,7 @@ if (mysqli_query($conn, $sql)) {
 
     mysqli_close($conn);
 
-    header('Location: invites.php'); 
+    header('Location: ../invites.php'); 
 
     exit;
 
