@@ -15,7 +15,7 @@
 
 # Download the repo and make necessary changes to config file 📄  
 
-🏠 Download the repo locally by using the download button or by typing on your terminal `git clone repolink`  
+🏠 Download the repo locally by using the download button or by typing on your terminal `git clone https://github.com/3rg1s/SBNotes.git`  
   
   - Add the repo files into /var/www/html *if you are using Linux with apache*(Highly recommended)
   - Add the repo files inside c:\xampp\htdocs\ *if you are using xamp on Windows*(Not recommended)
