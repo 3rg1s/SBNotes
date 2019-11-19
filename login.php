@@ -98,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="loginlogout.js" type=""></script>
+<link rel="stylesheet" href="/css/particles_css.css">
 <script>
 </script>
 <style>
@@ -119,9 +119,9 @@ height: 100%;
 
 </style>
 <body>
+<div id="particles-js"></div>
 <section id="loginform" class="outer-wrapper">
 <link rel="stylesheet">
-
   <div class="inner-wrapper">
 <div class="container">
   <div class="row">
@@ -147,9 +147,19 @@ height: 100%;
   </div>
 </div>
 </div>
-
 </section>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
 
+        particlesJS.load('particles-js', '/css/particles.json',
+
+        function(){
+
+            console.log('particles.json loaded...')
+
+        })
+
+    </script>
 </body>
 </html>
 

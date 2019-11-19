@@ -33,5 +33,5 @@
  - ~~Make the input tags focused when there is only one left.~~
  - Add to the change password the to ask for the current password.
  - Learn some more git.
- - ~~Fix navigator file.~~
- - ~~Add support for smartphones.~~
+ - Fix navigator file.
+ - Add support for smartphones.
