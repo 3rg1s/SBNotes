@@ -29,9 +29,16 @@
 
 
 👔 TODO:
+
+COMPLETED ✔️
  - ~~add some files inside Folder to not look this messy.~~
  - ~~Make the input tags focused when there is only one left.~~
+ - ~~Fix navigator file.~~
+ - ~~Add support for smartphones.~~
+ 
+IN PROGRESS ▶️
+ - Add better encryption.
+ - Add delete option for notes
+ - Make the signup page look better!
  - Add to the change password the to ask for the current password.
  - Learn some more git.
- - Fix navigator file.
- - Add support for smartphones.
