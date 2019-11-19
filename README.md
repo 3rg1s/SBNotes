@@ -42,3 +42,4 @@ IN PROGRESS ▶️
  - Make the signup page look better!
  - Add to the change password the to ask for the current password.
  - Learn some more git.
+ - Add a frontpage!
