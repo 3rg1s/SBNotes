@@ -43,12 +43,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
 
+    // Validate password
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter a password.";
+    } elseif(strlen(trim($_POST["password"])) < 6){
+        $password_err = "Password must have atleast 6 characters.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+
+
+    // Validate confirm password
+    if(empty(trim($_POST["confirm_password"]))){
+        $confirm_password_err = "Please confirm password.";
+    } else{
+        $confirm_password = trim($_POST["confirm_password"]);
+        if(empty($password_err) && ($password != $confirm_password)){
+            $confirm_password_err = "Password did not match.";
+        }
+    }
+
+
+
 
     //Validate invite 
-    if (empty(trim($_POST["invite"])) || $username_err === "This username is already taken.") {
-        $invite_err = "Please enter a inivite code";
-         $username_err = "This username is already taken.";
-    } else {
+    if ( $username_err === "" && $password_err ==="" && $confirm_password_err=== "" && $invite_err==="") {
         // Prepare sql statement
         $sql = "SELECT used FROM invite WHERE code = ?";
         $sql1 = "UPDATE invite SET used = '1' WHERE code = ?";
@@ -81,36 +100,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $invite_err = "Error 199";
                     }
                 } else {
-                    $invite_err = "Invalid invite code";
+                    $invite_err = "Please enter invite code";
                 }
             }
         }
          mysqli_stmt_close($stmt);
-    }
-
-
-
-
-    // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-
     
-    // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
-    } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
-        }
+} else {
+//
     }
-    
+
+
+
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($invite_err) ){
         
