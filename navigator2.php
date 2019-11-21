@@ -10,7 +10,7 @@
       <li class=""><a href="../index.php">Home</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
+      <li><a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION["username"]; ?><span class="caret glyphicon"></span></a>
         <ul class="dropdown-menu">
                 <?php
