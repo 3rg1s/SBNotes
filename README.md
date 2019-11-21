@@ -37,6 +37,7 @@ COMPLETED ✔️
  - ~~Fix navigator file.~~
  - ~~Add support for smartphones.~~
  - ~~Add better encryption.~~
+ - ~~Delete encryption password on user logout~~
  
 IN PROGRESS ▶️
  - Add delete option for notes
@@ -44,5 +45,4 @@ IN PROGRESS ▶️
  - Add to the change password the to ask for the current password.
  - Learn some more git.
  - Add a frontpage!
- - Delete encryption password on user logout
 
