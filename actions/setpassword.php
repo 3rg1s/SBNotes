@@ -23,6 +23,7 @@
       Password: <input autofocus type="text" id="Pass" size="" required><br>
       <br>
    <button  type="button" class="btn btn-primary" onclick="setPass()" >Set password</button>
+   <button  type="button" class="btn btn-danger" onclick="clearPass()" >Destory current password</button>
   </div>
 </form>
 <script>
@@ -35,6 +36,13 @@ input.value = localStorage.getItem("Password");
 // 
 }
 }
+
+// Destory current password from LocalStorage
+function clearPass() {
+        localStorage.removeItem('Password');
+        document.getElementById("Pass").value = "";
+}
+
 
 function setPass(){
 // Check browser support
