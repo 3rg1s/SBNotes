@@ -13,6 +13,7 @@
 
 ✏️ Create snotes table: `create table snotes(id int auto_increment not null primary key, note longtext not null, ownedby varchar(50) not null);`  
 
+
 # Download the repo and make necessary changes to config file 📄  
 
 🏠 Download the repo locally by using the download button or by typing on your terminal `git clone https://github.com/3rg1s/SBNotes.git`  
@@ -35,7 +36,7 @@ COMPLETED ✔️
  - ~~Make the input tags focused when there is only one left.~~
  - ~~Fix navigator file.~~
  - ~~Add support for smartphones.~~
- - Add better encryption.
+ - ~~Add better encryption.~~
  
 IN PROGRESS ▶️
  - Add delete option for notes
