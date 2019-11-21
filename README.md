@@ -9,7 +9,7 @@
 
 ✏️ Create invite table: `create table invite (id int not null auto_increment unique, used boolean default '0', code varchar(50) not null unique, ownedby varchar(50) default '');` assuming you are inside a sql shell.  
 
-✏️ Create users table: ` create table users(id int auto_increment not null primary key, username varchar(50) not null unique, password varchar(255) not null, created_at datetime default current_timestamp)`  
+✏️ Create users table: ` create table users(id int auto_increment not null primary key, username varchar(50) not null unique, password varchar(255) not null, created_at datetime default current_timestamp);`  
 
 ✏️ Create snotes table: `create table snotes(id int auto_increment not null primary key, note longtext not null, ownedby varchar(50) not null);`  
 
@@ -35,13 +35,13 @@ COMPLETED ✔️
  - ~~Make the input tags focused when there is only one left.~~
  - ~~Fix navigator file.~~
  - ~~Add support for smartphones.~~
+ - Add better encryption.
  
 IN PROGRESS ▶️
- - Add better encryption.
  - Add delete option for notes
  - Make the signup page look better!
  - Add to the change password the to ask for the current password.
  - Learn some more git.
  - Add a frontpage!
-
+ - Delete encryption password on user logout
 
