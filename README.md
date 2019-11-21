@@ -1,6 +1,6 @@
 # SBNotes 🗒️
 ----------------
-[Website Status](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2F0x0byt3.com)
+![Website Status](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2F0x0byt3.com)
 
 
 *SB Notes is a web application, which encrypts your Notes using aes256(not sure enough :D) and then sends them to the server! This is a school project as a way to learn about web technologies!*
