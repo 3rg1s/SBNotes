@@ -9,7 +9,7 @@ $_SESSION = array();
 session_destroy();
 
  
-// Redirect to login page
-header("location: login.php?status=loggedout");
+// Redirect to a html file to destroy localstorage!
+header("location: destroypass.html");
 exit;
 ?>
