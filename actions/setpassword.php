@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+CTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">    
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welcome</title>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body onload="checkpass()">
@@ -20,7 +20,7 @@
 </div>
 <form>
   <div class="form-group">
-      Password: <input autofocus type="text" id="Pass" size="" required><br>
+      Password: <input autofocus type="text" id="Pass" required ><br>
       <br>
    <button  type="button" class="btn btn-primary" onclick="setPass()" >Set password</button>
    <button  type="button" class="btn btn-danger" onclick="clearPass()" >Destory current password</button>
@@ -33,7 +33,7 @@ if (localStorage.getItem("Password") != null) {
 var input = document.getElementById("Pass");
 input.value = localStorage.getItem("Password");
 } else {
-// 
+//
 }
 }
 
@@ -46,6 +46,16 @@ function clearPass() {
 
 function setPass(){
 // Check browser support
+if(document.getElementById("Pass").value == "") {
+
+Swal.fire({
+  icon: 'error',
+  title: 'Oops...',
+  position: "top-end",
+  text: 'Please set a password, to protect your data!',
+})
+
+} else {
 if (typeof(Storage) !== "undefined") {
 
 
@@ -53,12 +63,13 @@ var pass = document.getElementById("Pass").value;
 
 localStorage.setItem("Password", pass);
   // Retrieve
-// document.getElementById("Pass").value = localStorage.getItem("Password"); 
+// document.getElementById("Pass").value = localStorage.getItem("Password");
 
 } else {
   document.getElementById("Pass").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
 window.location.replace("/");
+}
 }
 </script>
 
@@ -80,7 +91,7 @@ function getCookie(cname) {
 }
 issetha = getCookie("Password");
 if (issetha) {
-	window.location.href="encnot.php"
+        window.location.href="encnot.php"
 } else {
 var password = document.getElementById("Pass").value;
 document.cookie = "Password=" +password +"; path=/";
@@ -90,4 +101,3 @@ document.cookie = "Password=" +password +"; path=/";
 </div>
 </div>
 </body>
-</html>
