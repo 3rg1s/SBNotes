@@ -45,4 +45,4 @@ IN PROGRESS ▶️
  - Add to the change password the to ask for the current password.
  - Learn some more git.
  - Add a frontpage!
-
+ - Add User settings (Add profile password, auto-delete note)
