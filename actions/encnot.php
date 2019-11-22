@@ -17,14 +17,20 @@
    <?php
  include '../navigator2.php';
  ?>
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Enter Message</label>
-      <textarea type="text" id="Message" size="20" name="fname"></textarea><br>
-   <button  type="button" class="btn btn-primary" onclick="encrypt()">Encrypt Message</button>
-  </div>
-</form>
-<script type="text/javascript">
+
+<div class="container">
+  <h2>Add Note</h2>
+  <p>:</p>
+  <form>
+    <div class="form-group">
+      <textarea class="form-control" type="text" rows="20" id="Message" name="fname"></textarea>
+    </div>
+   <button  type="button" class="btn btn-primary" onclick="encrypt()">Save Note</button>
+  </form>
+</div>
+
+ 
+ <script type="text/javascript">
 
 function getCookie(cname) {
   var name = cname + "=";
@@ -46,10 +52,11 @@ function encrypt(){
 
 	var message = document.getElementById("Message").value;
 	var password = localStorage.getItem("Password");
-	var encrypted = CryptoJS.AES.encrypt(message, password).toString();
-  sendtodb(encrypted);
+	var encrypted = CryptoJS.AES.encrypt(message, password, "{mode: CryptoJS.mode.CBC, padding:CryptoJs.pad.Pkcs7}").toString();
+  	sendtodb(encrypted);
 
 }
+
 
 
 function sendtodb(note){
@@ -73,31 +80,6 @@ $.ajax({
 
 });
 }
-
-
-
-// $.ajax({
-//   url: "http://localhost/univproj/notesubmit.php",
-//   type: "POST",
-//   data: {note: not},
-//   success: function(data){
-//                         swal.fire({
-//                         position: "top-end",
-//                         type: "success",
-//                         title: "Invite code created",
-//                         showConfirmButton: false,
-//                         timer: 500
-//                     });
-//                     setTimeout(function(){
-//                      location.reload();
-//                     }, 1000);
-//   }
-// })
-
-// function decrypt(){
-//   var pass = localStorageGetItem("Password");
-//   var decrypted = CryptoJS.AES.decrypt(encrypted, beu);
-// }
 
 </script>
 </body>

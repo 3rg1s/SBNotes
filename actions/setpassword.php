@@ -1,6 +1,7 @@
-CTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welcome</title>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
@@ -40,7 +41,15 @@ input.value = localStorage.getItem("Password");
 // Destory current password from LocalStorage
 function clearPass() {
         localStorage.removeItem('Password');
-        document.getElementById("Pass").value = "";
+	document.getElementById("Pass").value = "";
+swal.fire({
+    position: "top-end",
+    type: "success",
+    title: "Password is now gone!",
+    showConfirmButton: false,
+    timer: 1200
+});
+
 }
 
 
@@ -48,55 +57,63 @@ function setPass(){
 // Check browser support
 if(document.getElementById("Pass").value == "") {
 
-Swal.fire({
-  icon: 'error',
-  title: 'Oops...',
-  position: "top-end",
-  text: 'Please set a password, to protect your data!',
-})
+swal.fire({
+    position: "top-end",
+    type: "error",
+    title: "Please enter a password for better security",
+    showConfirmButton: false,
+    timer: 1200
+});
 
-} else {
-if (typeof(Storage) !== "undefined") {
+} 
 
+else {
 
-var pass = document.getElementById("Pass").value;
+ if (typeof(Storage) !== "undefined") {
 
-localStorage.setItem("Password", pass);
-  // Retrieve
-// document.getElementById("Pass").value = localStorage.getItem("Password");
+	// create a localStorage variable and assign the password.
+	var pass = document.getElementById("Pass").value;
+	localStorage.setItem("Password", pass);
 
-} else {
-  document.getElementById("Pass").innerHTML = "Sorry, your browser does not support Web Storage...";
+} 
+
+else {
+
+// If not supported show error
+swal.fire({
+    position: "top-end",
+    type: "error",
+    title: "Sorry, your browser does not support Web Storage...",
+    showConfirmButton: false,
+    timer: 1200
+});
+
 }
-window.location.replace("/");
+
+//Redirect function
+function redirect() {
+window.location.assign("/");
+}
+
+//set password and show success message
+swal.fire({
+    position: "top-end",
+    type: "success",
+    title: "Password set, please remember it",
+    showConfirmButton: false,
+    timer: 1200
+});
+
+window.setTimeout(function(){
+
+        // Move to a new location or you can do something else
+        window.location.href = "/";
+
+    }, 2000);
 }
 }
 </script>
 
-<!-- <script type="text/javascript">
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-issetha = getCookie("Password");
-if (issetha) {
-        window.location.href="encnot.php"
-} else {
-var password = document.getElementById("Pass").value;
-document.cookie = "Password=" +password +"; path=/";
-}
-</script> -->
 </div>
 </div>
 </div>
