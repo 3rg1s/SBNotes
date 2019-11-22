@@ -47,3 +47,4 @@ IN PROGRESS ▶️
  - Add a frontpage!
  - Add User settings (Add profile password, auto-delete note)
  - Add a php file to create the database for you! 
+ - CRITICAL :USE MYSQLI INSTEAD OF mysql_query, TO prevent any type of mysql injection.
