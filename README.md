@@ -38,11 +38,12 @@ COMPLETED ✔️
  - ~~Add support for smartphones.~~
  - ~~Add better encryption.~~
  - ~~Delete encryption password on user logout~~
+ - ~~Add delete option for notes~~
  
 IN PROGRESS ▶️
- - Add delete option for notes
  - Make the signup page look better!
  - Add to the change password the to ask for the current password.
  - Learn some more git.
  - Add a frontpage!
  - Add User settings (Add profile password, auto-delete note)
+ - Add a php file to create the database for you! 

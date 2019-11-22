@@ -15,6 +15,7 @@ $conn = mysqli_connect("localhost", "admin", "password!", $dbname);
 
 $id = $_GET['id'];
 
+if($_SESSION["username"]=== "admin"){
 // sql to delete a record
 $sql = "DELETE FROM invite WHERE Code = '$id' "; 
 // Check connection
@@ -34,7 +35,10 @@ if (mysqli_query($conn, $sql)) {
 
     echo "Error deleting record";
 }
+} else {
 
+	header('Location: ../login.php');
+}
 
 ?>
 
