@@ -39,6 +39,8 @@ COMPLETED ✔️
  - ~~Add better encryption.~~
  - ~~Delete encryption password on user logout~~
  - ~~Add delete option for notes~~
+ - ~~Fetch all js files locally instead of a cdn.~~
+ - ~~CRITICAL :USE PDO  INSTEAD OF mysql_query, TO prevent any type of mysql injection.~~
  
 IN PROGRESS ▶️
  - Make the signup page look better!
@@ -47,4 +49,3 @@ IN PROGRESS ▶️
  - Add a frontpage!
  - Add User settings (Add profile password, auto-delete note)
  - Add a php file to create the database for you! 
- - CRITICAL :USE PDO  INSTEAD OF mysql_query, TO prevent any type of mysql injectionf.

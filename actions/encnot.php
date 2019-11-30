@@ -32,21 +32,6 @@
  
  <script type="text/javascript">
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 
 function encrypt(){
 
@@ -66,16 +51,7 @@ $.ajax({
   type: "POST",
   data: {note: note},
   success: function(data){
-        swal.fire({
-        position: "top-end",
-        type: "success",
-        title: "Invite code created",
-        showConfirmButton: false,
-        timer: 100
-    });
-      setTimeout(function(){
        window.location.replace("../view.php");
-      }, 1000);
   }
 
 });

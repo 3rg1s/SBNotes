@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welcome</title>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="/js/sweetalert2@8"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
 </head>
 <body onload="checkpass()">
    <?php
@@ -34,14 +34,16 @@ if (localStorage.getItem("Password") != null) {
 var input = document.getElementById("Pass");
 input.value = localStorage.getItem("Password");
 } else {
-//
+// do nothing here atm
 }
 }
 
 // Destory current password from LocalStorage
 function clearPass() {
-        localStorage.removeItem('Password');
+	
+if (localStorage.getItem('Password') != null) {
 	document.getElementById("Pass").value = "";
+	localStorage.removeItem('Password');
 swal.fire({
     position: "top-end",
     type: "success",
@@ -52,6 +54,17 @@ swal.fire({
 
 }
 
+ else {
+swal.fire({
+    position: "top-end",
+    type: "info",
+    title: "No password is set",
+    showConfirmButton: false,
+    timer: 1200
+});
+
+}
+}
 
 function setPass(){
 // Check browser support
@@ -60,7 +73,7 @@ if(document.getElementById("Pass").value == "") {
 swal.fire({
     position: "top-end",
     type: "error",
-    title: "Please enter a password for better security",
+    title: "Please enter a password",
     showConfirmButton: false,
     timer: 1200
 });
