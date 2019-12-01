@@ -119,5 +119,12 @@ height: 100%;
 </div>
 </div>
 </section>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', '/css/particles.json',
+        function(){
+            console.log('particles.json loaded...')
+        })
+    </script>
 </body>
 </html>
