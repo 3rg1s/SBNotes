@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$_SESSION["username"] = $result['username'];
 
 			//redirect to user welcome page
-			header("location: /index.php");
+			header("location: /actions/setpassword.php");
 		} else {
 			$error = "Invalid credentials";
 		}
