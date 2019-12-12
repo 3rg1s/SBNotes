@@ -25,7 +25,7 @@
 
 -----------------
 
-## ⛔ There is a change to be a vulenrability in this webapp. Please use with caution!
+## ⛔ There is a chance to be a vulenrability in this webapp. Please use with caution!
 
 
 
