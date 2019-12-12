@@ -2,6 +2,10 @@
 
 session_start();
 
+// Check if the user is logged in, otherwise redirect to login page                                                                                                                                                                           
+ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){                                                                                                                                                                         
+     header("location: ../login.php");                                                                                                                                                                                                                  exit;                                                                                                                                                                                                                                     }
+
 
 $id = $_GET['id'];
 $user = $_SESSION['username'];
@@ -52,9 +56,19 @@ header("Location: ../view.php");
 
 <!DOCTYPE html>
 <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">    
+        <title>Set Timer</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery.min.js"></script>
+
+
+  <script src="/js/bootstrap.min.js"></script>
+</head>
 <body>
-
-
+<?php
+ include '../navigator2.php';
+?>  
 <form action="" method="POST">
 <br>
 Delete After how many Minutes:
