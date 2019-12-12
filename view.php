@@ -58,9 +58,10 @@ foreach($result as $note) {
    echo "<script> document.write(decrypt(" . '"' . $note["note"]    . '"' . "));</script>";
    echo "<script> if(decrypt(" . '"' . $note["note"]    . '"' . ") == \"\"){<style>view_buttons</style>} else {}</script>";
    echo "<td><a href='/actions/delete_note.php?id=" .$note['id']."'><button  name=\"ba\" type=\"button\" class=\"btn btn-danger\" style=\" float:right\" id=\"view_buttons\"  >Delete</button></a></td>";   
+   echo "<td><a href='/actions/autodelete.php?id=" .$note['id']."'><button  name=\"autodelete\" type=\"button\" class=\"btn btn-info\" style=\" float:left\" id=\"view_buttons\"  >Auto_Delete</button></a></td>";   
    echo "<br>";
-}
 
+}
 
 ?>
 <br>
@@ -100,6 +101,43 @@ swal.fire({
 //unset the variable
 
 unset($_SESSION['deleted']);
+
+
+
+?>
+</script>
+<script>
+var autodeleteornot = "<?php echo $_SESSION['autodeleted'];?>";
+if( autodeleteornot == "1") {
+
+swal.fire({
+    position: "top-end",
+    type: "success",
+    title: "Job set successfully",
+    showConfirmButton: false,
+    timer: 1200
+});
+
+} else if (autodeleteornot == "0") {
+
+swal.fire({
+    position: "top-end",
+    type: "error",
+    title: "Job already Exists",
+    showConfirmButton: false,
+    timer: 1200
+});
+
+
+
+}
+
+<?php 
+
+
+//unset the variable
+
+unset($_SESSION['autodeleted']);
 
 
 

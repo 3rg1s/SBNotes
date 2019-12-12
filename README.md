@@ -34,6 +34,7 @@
 COMPLETED ✔️
  - ~~add some files inside Folder to not look this messy.~~
  - ~~Make the input tags focused when there is only one left.~~
+ - ~~Add a frontpage!~~
  - ~~Fix navigator file.~~
  - ~~Add support for smartphones.~~
  - ~~Add better encryption.~~
@@ -41,11 +42,9 @@ COMPLETED ✔️
  - ~~Add delete option for notes~~
  - ~~Fetch all js files locally instead of a cdn.~~
  - ~~CRITICAL :USE PDO  INSTEAD OF mysql_query, TO prevent any type of mysql injection.~~
+ - ~~Add User settings (Add profile password, auto-delete note)~~
+ - ~~Make the signup page look better!~~
  
 IN PROGRESS ▶️
- - Make the signup page look better!
  - Add to the change password the to ask for the current password.
- - Learn some more git.
- - Add a frontpage!
- - Add User settings (Add profile password, auto-delete note)
  - Add a php file to create the database for you! 
