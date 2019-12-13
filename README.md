@@ -47,4 +47,7 @@ COMPLETED ✔️
  
 IN PROGRESS ▶️
  - Add to the change password the to ask for the current password.
- - Add a php file to create the database for you! 
+ - Add a php file to create the database for you!
+ - Add roles to users.(admin,normal).
+ - fix the generate code button on admin page.
+ - Create a admin folder with the admin files there. 
