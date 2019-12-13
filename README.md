@@ -50,4 +50,5 @@ IN PROGRESS ▶️
  - Add a php file to create the database for you!
  - Add roles to users.(admin,normal).
  - fix the generate code button on admin page.
- - Create a admin folder with the admin files there. 
+ - Create a admin folder with the admin files there.
+ - Add forget password,option which will send a link to reset your password(or something similar). 
