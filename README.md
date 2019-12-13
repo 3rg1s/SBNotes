@@ -5,9 +5,9 @@
 
 # How to set up the database 💽 
 
-✏️ Create a database: `create database project1`  
+✏️ Create a database: `create database project1;`  
 
-✏️ Create invite table: `create table invite (id int not null auto_increment unique, used boolean default '0', code varchar(50) not null unique, ownedby varchar(50) default '');` assuming you are inside a sql shell.  
+✏️ Create invite table: `create table invite (id int not null auto_increment unique, used boolean default '0', code varchar(50) not null unique, ownedby varchar(50) default '');`  
 
 ✏️ Create users table: ` create table users(id int auto_increment not null primary key, username varchar(50) not null unique, password varchar(255) not null, created_at datetime default current_timestamp);`  
 
