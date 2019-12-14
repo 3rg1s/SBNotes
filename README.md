@@ -52,3 +52,4 @@ IN PROGRESS ▶️
  - fix the generate code button on admin page.
  - Create a admin folder with the admin files there.
  - Add forget password,option which will send a link to reset your password(or something similar). 
+ - To prevent saved password, from other users, perhaps they just close the browser so, the destroypassword.html is never running, when A users login in, destroy any saved local storage. to prevent this type of thing.
