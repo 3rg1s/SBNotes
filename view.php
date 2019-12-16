@@ -3,28 +3,16 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">    
 	<title>Encrypt Da notes</title>
-<script src="/js/sweetalert2@8"></script>
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/buttons.css">
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/crypto-js.js" ></script>
-<script>
-  function decrypt(encryptedtext){
-  var pass = localStorage.getItem("Password");
-  var decrypted = CryptoJS.AES.decrypt(encryptedtext, pass).toString(CryptoJS.enc.Utf8);
-  return decrypted;
-}
- 
-</script>
-    <style type="text/css">
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js" integrity="sha256-xoJklEMhY9dP0n54rQEaE9VeRnBEHNSfyfHlKkr9KNk=" crossorigin="anonymous"></script>
+<style type="text/css">body{ font: 14px sans-serif; text-align: center; }</style>
 </head>
 <body>
-   <?php
+
+<?php
  include 'navigator.php';
  ?>
+
  <div class="container">
   <div class="row">
     <div class="col-md">
@@ -35,8 +23,14 @@
 </strong>
   </div>
 
+<script>
+  function decrypt(encryptedtext){
+  var pass = localStorage.getItem("Password");
+  var decrypted = CryptoJS.AES.decrypt(encryptedtext, pass).toString(CryptoJS.enc.Utf8);
+  return decrypted;
+}
+</script>
 
-      
 <?php
 
 session_start();
@@ -72,6 +66,7 @@ foreach($result as $note) {
 </div>
 </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <script>
 var deleteornot = "<?php echo $_SESSION['deleted'];?>";
 console.log(deleteornot);	
@@ -147,6 +142,8 @@ unset($_SESSION['autodeleted']);
 
 ?>
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 

@@ -7,7 +7,7 @@
       <a class="navbar-brand" href=".">SBnotes</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.php">Home</a></li>
+      <li><a href="index.php">Home</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
@@ -20,7 +20,7 @@
 
   }
   ?>
-          <li><a href="/actions/encnot.php">Encrypt Notes</a></li>
+          <li><a href="actions/encnot.php">Encrypt Notes</a></li>
           <li><a href="view.php">View Notes</a></li>
           <li><a href="actions/setpassword.php">Set Notes Password</a></li>
           <li><a href="actions/reset-password.php">Reset Account Password</a></li>

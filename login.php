@@ -1,5 +1,5 @@
 <?php
-                                                                                                                                                                                                                                       
+
 // Initialize the session
 session_start();                                                                                                                                                                                                                                                                                                                                                                                                                           
 //Check if user is logged in, if yes then redirect to index.php
@@ -58,20 +58,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
 </head>
- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/css/particles_css.css">
-<script>
-</script>
 <style>
 html, body { height:100%; }
 
@@ -120,11 +114,10 @@ height: 100%;
 </div>
 </section>
 <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS.load('particles-js', '/css/particles.json',
-        function(){
-            console.log('particles.json loaded...')
-        })
-    </script>
+<script>particlesJS.load('particles-js', '/css/particles.json')</script>
+<script>localStorage.removeItem('Password'); // Destroy localstorage,if there is any left from previous user, not loged out using logout button.</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </body>
 </html>

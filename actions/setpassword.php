@@ -6,16 +6,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <!DOCTYPE html>
 <html>
 <head>
+<title>Set Encryption Password</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Welcome</title>
-<script src="/js/sweetalert2@8"></script>
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body onload="checkpass()">
-   <?php
+ <?php
  include '../navigator2.php';
  ?>
 <div class="container">
@@ -135,4 +132,8 @@ window.setTimeout(function(){
 </div>
 </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </body>
+</html>

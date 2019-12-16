@@ -85,13 +85,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	    $query->bindValue(':password', $hashed_password, PDO::PARAM_STR);	    
 	    $query->execute();
 	    if($query) {
-		    $cookie_name="registered";
-		    $cookie_value="1";
-		    setcookie($cookie_name, $cookie_value, time() + (60), "/");
 		    header("Location: ../index.php");
 	    } else {
-		    $_SESSION['registered'] = 1;	
+	    	echo "An error occured";
 	    }
+
     }	
     
 }
@@ -100,16 +98,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
 </head>
+<style>
+html, body { height:100%; }
+.outer-wrapper { 
+display: table;
+width: 100%;
+height: 100%;
+}
+.inner-wrapper {
+  display:table-cell;
+  vertical-align:middle;
+  padding:15px;
+}
+.login-btn { position:fixed; top:15px; right:15px; }
+</style>
 <body>
     <div class="wrapper">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form id="formLogin" class="form" method="post">
@@ -139,6 +151,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p>Already have an account? <a href="../login.php">Login here</a>.</p>
         </form>
-    </div>    
+    </div>  
+</div>
+</div>
+</div>  
 </body>
 </html>
