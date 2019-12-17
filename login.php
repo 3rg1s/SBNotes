@@ -113,7 +113,7 @@ height: 100%;
 </div>
 </div>
 </section>
-<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>particlesJS.load('particles-js', '/css/particles.json')</script>
 <script>localStorage.removeItem('Password'); // Destroy localstorage,if there is any left from previous user, not loged out using logout button.</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
