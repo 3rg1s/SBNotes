@@ -1,7 +1,6 @@
 <?php
 // Initialize the session
 session_start();
- 
 // Check if the user is logged in, otherwise redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: ../login.php");
@@ -17,7 +16,29 @@ $new_password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+
+	$id = $_SESSION['id'];
+	$query= $conn->prepare("SELECT password FROM users WHERE id = :id"); // prepare my sql query
+        $query->bindValue(':id', $id, PDO::PARAM_INT); // bind username
+        $query->execute(); // execute the query
+        $result=$query->fetch(); //fetch the results
+if(password_verify($_POST["previous_password"], $result['password'])) {
+             
+}  else {
+        $previous_password_err = "Previous password was incorrect";     
+
+}
+
+
+
+    // Validate previous password
+    if(empty(trim($_POST["previous_password"]))){
+        $previous_password_err = "Please enter the previous password.";     
+    } else{
+        $previous_password = trim($_POST["previous_password"]);
+    }
+	
+
     // Validate new password
     if(empty(trim($_POST["new_password"]))){
         $new_password_err = "Please enter the new password.";     
@@ -38,35 +59,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
         
     // Check input errors before updating the database
-    if(empty($new_password_err) && empty($confirm_password_err)){
-        // Prepare an update statement
-        $sql = "UPDATE users SET password = ? WHERE id = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
-            
-            // Set parameters
-            $param_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $param_id = $_SESSION["id"];
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Password updated successfully. Destroy the session, and redirect to login page
-                session_destroy();
-                header("location: login.php");
-                exit();
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-        }
-        
-        // Close statement
-        mysqli_stmt_close($stmt);
+    if(empty($new_password_err) && empty($confirm_password_err) && empty($previous_password_err)){
+    
+	    $password = password_hash($new_password, PASSWORD_DEFAULT);
+            $id = $_SESSION["id"];	
+	
+	$query= $conn->prepare("UPDATE users SET password = :password WHERE id = :id"); // prepare my sql query
+	$query->bindValue(':password', $password, PDO::PARAM_STR); // bind username
+	$query->bindValue(':id', $id, PDO::PARAM_INT); // bind password
+	$query->execute(); // execute the query
+	if($query) {
+$_SESSION['resetpass'] = "1";
+header('Location: ../index.php');
+}  else {
+$_SESSION['resetpass'] = "0";
+header('Location: ../index.php');
+}
     }
     
-    // Close connection
-    mysqli_close($link);
 }
 ?>
  
@@ -75,25 +85,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="/css/bootstrap.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">    
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
     </style>
 </head>
 <body>
+ <?php
+ include '../navigator2.php';
+ ?>
     <div class="wrapper">
         <h2>Reset Password</h2>
         <p>Please fill out this form to reset your password.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-            <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
+	    <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
+                <label>Previous Password</label>
+                <input type="password" name="previous_password" class="form-control" value="<?php echo $previous_password; ?>" required>
+                <span class="help-block"><?php echo $previous_password_err; ?></span>
+            </div> 
+	    <div class="form-group <?php echo (!empty($new_password_err)) ? 'has-error' : ''; ?>">
                 <label>New Password</label>
-                <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>">
+                <input type="password" name="new_password" class="form-control" value="<?php echo $new_password; ?>" required>
                 <span class="help-block"><?php echo $new_password_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                 <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control">
+                <input type="password" name="confirm_password" class="form-control" required>
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
@@ -103,4 +123,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </form>
     </div>    
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </html>
