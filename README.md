@@ -46,9 +46,9 @@ COMPLETED ✔️
  - ~~Make the signup page look better!~~
  - ~~To prevent saved password, from other users, perhaps they just close the browser so, the destroypassword.html is never running, when A users login in, destroy any saved local storage. to prevent this type of thing.~~
  - ~~Fix the generate code button on admin page.~~
+ - ~~Add to the change password the to ask for the current password.~~
  
 IN PROGRESS ▶️
- - Add to the change password the to ask for the current password.
  - Add a php file to create the database for you!
  - Add roles to users.(admin,normal).
  - Create a admin folder with the admin files there.
