@@ -118,6 +118,7 @@ foreach($result as $row) {
 
 <!-- </div> -->
 </tbody>
+<a href="javascript:void(0);" onclick="confirmcreate()"<button style="float:right" type="button" class="btn btn-success">Generate</button> </a>
 </div>
 </table>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
