@@ -45,11 +45,11 @@ COMPLETED ✔️
  - ~~Add User settings (Add profile password, auto-delete note)~~
  - ~~Make the signup page look better!~~
  - ~~To prevent saved password, from other users, perhaps they just close the browser so, the destroypassword.html is never running, when A users login in, destroy any saved local storage. to prevent this type of thing.~~
+ - ~~Fix the generate code button on admin page.~~
  
 IN PROGRESS ▶️
  - Add to the change password the to ask for the current password.
  - Add a php file to create the database for you!
  - Add roles to users.(admin,normal).
- - Fix the generate code button on admin page.
  - Create a admin folder with the admin files there.
  - Add forget password,option which will send a link to reset your password(or something similar). 

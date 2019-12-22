@@ -40,15 +40,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         Please send a email to our main developer at : ehotza35 [at] gmail [dot] com , if you have any questions!
     </div>
 
-        <?php
-        if ($_SESSION["username"] === "admin") {
-            echo "<br>";
-            echo '<a class="btn btn-primary" href="invites.php">Show invite code</a>';
-
-        } else {
-            echo "";
-        }
-        ?>
     <script type="text/javascript">
     function confirmcreate(){
         swal.fire({
