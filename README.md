@@ -47,9 +47,12 @@ COMPLETED ✔️
  - ~~To prevent saved password, from other users, perhaps they just close the browser so, the destroypassword.html is never running, when A users login in, destroy any saved local storage. to prevent this type of thing.~~
  - ~~Fix the generate code button on admin page.~~
  - ~~Add to the change password the to ask for the current password.~~
+ - ~~Removed the option from user to click to add more particles~~
  
 IN PROGRESS ▶️
  - Add a php file to create the database for you!
  - Add roles to users.(admin,normal).
  - Create a admin folder with the admin files there.
- - Add forget password,option which will send a link to reset your password(or something similar). 
+ - Add forget password,option which will send a link to reset your password(or something similar).
+ - Show user the note does not exist if wrong id is used.
+ - Show error message when no note is written on the input box. 
