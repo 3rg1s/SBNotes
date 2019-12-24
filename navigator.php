@@ -12,8 +12,12 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION["username"]; ?><span class="caret glyphicon"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="invites.php">Show Invites</a></li>
+	<ul class="dropdown-menu">
+<?php
+  if ($_SESSION["username"] === "admin") { 
+	echo '<li><a href="invites.php">Show Invites</a></li>';
+  }
+?>	
           <li><a href="actions/encnot.php">Encrypt Notes</a></li>
           <li><a href="view.php">View Notes</a></li>
           <li><a href="actions/setpassword.php">Set Notes Password</a></li>
