@@ -1,4 +1,6 @@
 # SBNotes 🗒️
+
+Secure Notes Are hard
 ----------------
 ![Website Status](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2F0x0byt3.com)
 
