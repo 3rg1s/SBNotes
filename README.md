@@ -2,7 +2,7 @@
 
 Secure Notes Are hard
 ----------------
-![Website Status](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2F0x0byt3.com)
+![Website Status](https://img.shields.io/website?style=for-the-badge&url=https://sbn.0x0byt3.com)
 
 
 # How to set up the database 💽 
