@@ -23,7 +23,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 </div>
 <form>
   <div class="form-group">
-      Password: <input autofocus type="text" id="Pass" required ><br>
+      Password: <input autofocus type="password" id="Pass" required ><br>
       <br>
    <button  type="button" class="btn btn-primary" onclick="setPass()" >Set password</button>
    <button  type="button" class="btn btn-danger" onclick="clearPass()" >Destory current password</button>
