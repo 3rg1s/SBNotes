@@ -103,7 +103,8 @@ create_table();
 
 check_connection($hostname,$database,$username,$password);
 
+header("Location: index.php");
 
-unlink("config.php");
+unlink("install.php");
 
 ?>

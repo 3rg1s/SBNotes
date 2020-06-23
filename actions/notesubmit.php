@@ -5,10 +5,12 @@ session_start();
 // Check if the user is logged in, otherwise redirect to login page                                                                                                                                                                           
  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
      header("location: ../login.php");                                                                                                                                                                                                                  exit;                                                                                                                                                                                                                                     }
-
 $username = $_SESSION["username"];
-
 $note = $_POST["note"];
+
+if($note) {
+
+
 
 require_once "../config.php";
 
@@ -19,5 +21,10 @@ $query-> bindValue(':note', $note, PDO::PARAM_STR);
 $query-> bindValue(':ownedby', $_SESSION['username'], PDO::PARAM_STR);
 //execute
 $query-> execute();
+}
+else {
+
+    echo "Username or note is missing";
+}
 
 ?>
