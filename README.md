@@ -5,21 +5,10 @@ Secure Notes Are hard
 ![Website Status](https://img.shields.io/website?style=for-the-badge&url=https://sbn.0x0byt3.com)
 
 
-# How to set up the database 💽 
+# How to set up 💽 
 
-✏️ Create a database: `create database project1;`  
 
-✏️ Set the current working database: `use project1;`   
-
-✏️ Create invite table: `create table invite (id int not null auto_increment unique, used boolean default '0', code varchar(50) not null unique, ownedby varchar(50) default '');`   
-
-✏️ Create users table: ` create table users(id int auto_increment not null primary key, username varchar(50) not null unique, password varchar(255) not null, created_at datetime default current_timestamp);`   
-
-✏️ Create snotes table: `create table snotes(id int auto_increment not null primary key, note longtext not null, ownedby varchar(50) not null);`   
-
-✏️ Create a invite code to use ti in order to create a admin account.:`INSERT INTO invite(code) VALUES (UUID());`
-
-✏️ Copy the code : `select code from invite;`
+✏️ Create a database, and then goto install.php and fill the fields, that should automatically create the tables for you!`
 
 # Download the repo and make necessary changes to config file 📄  
 
