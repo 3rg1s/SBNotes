@@ -17,8 +17,6 @@ Secure Notes Are hard
   - Add the repo files into /var/www/html *if you are using Linux with apache*
   - Add the repo files inside c:\xampp\htdocs\ *if you are using xamp on Windows*
 
-⌨️ Make the necessary changes inside the **config.php** file.
-
 -----------------
 
 ## ⛔ There is a chance to be a security issue in this webapp. Please use with caution!
