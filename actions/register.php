@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Include config file
 require_once "../config.php";
  
@@ -32,7 +33,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	}
     }
-
     // Validate password
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";
@@ -154,6 +154,54 @@ height: 100%;
     </div>  
 </div>
 </div>
-</div>  
+</div>
+<script>
+function copyStringToClipboard(str) {
+     // Create new element
+  var el = document.createElement('textarea');
+   // Set value (string to be copied)
+   el.value = str;
+   // Set non-editable to avoid focus and move outside of view
+   el.setAttribute('readonly', '');
+   el.style = {position: 'absolute', left: '-9999px'};
+   document.body.appendChild(el);
+   // Select text inside element
+   el.select();
+   // Copy text to clipboard
+   document.execCommand('copy');
+   // Remove temporary element
+   document.body.removeChild(el);
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+<script>
+var invitecode = "<?php echo $_SESSION['code'];?>";
+if(invitecode !== "") {
+    Swal.fire({
+  position: 'top-end',
+  type: 'info',
+  title: 'Your work has been saved',
+  confirmButtonText: 'COPY',
+  showConfirmButton: true
+}).then((result) => {
+    if (result.value) {
+    var invitecode = "<?php echo $_SESSION['code'];?>";
+    copyStringToClipboard(invitecode);
+    Swal.fire(
+      'Copied!',
+      'Invite code copied to your clipboard.',
+      'success'
+    )
+  }
+})
+}
+
+<?php
+unset($_SESSION['code']);
+?>
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </body>
 </html>

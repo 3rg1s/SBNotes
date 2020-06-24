@@ -27,8 +27,8 @@ $_SESSION['deleted'] = "1";
 header("Location: ../view.php");
 } else {
 
-	$_SESSION['deleted'] = "0";
-	header("Location: ../view.php");
+$_SESSION['deleted'] = "0";
+header("Location: ../view.php");
 }
 
 

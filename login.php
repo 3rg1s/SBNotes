@@ -1,7 +1,13 @@
 <?php
 
+$filename = 'install.php';
+
+if (file_exists($filename)) {
+  header("Location: install.php");
+}
+
 // Initialize the session
-session_start();                                                                                                                                                                                                                                                                                                                                                                                                                           
+session_start();             
 //Check if user is logged in, if yes then redirect to index.php
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: index.php");
@@ -10,7 +16,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 
 // Include config file      
 require_once "config.php"; 
-
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if username is empty
@@ -30,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(empty($username_err) && empty($password_err)){
 		
 		$username = $_POST["username"]; // Get the username from  form and add to variable
-	        $password = $_POST["password"]; //Get the password from form and add to variable
+	  $password = $_POST["password"]; //Get the password from form and add to variable
 
 		$query= $conn->prepare("Select username,password from users where username = :username and password = :password"); // prepare my sql query
 		$query->bindValue(':username', $username, PDO::PARAM_STR); // bind username

@@ -9,9 +9,6 @@ $username = $_SESSION["username"];
 $note = $_POST["note"];
 
 if($note) {
-
-
-
 require_once "../config.php";
 
 //prepare sql statement

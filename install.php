@@ -28,6 +28,9 @@
 
 
 <?php
+
+session_start();
+
 $hostname = $_POST['hostname'];
 $database = trim($_POST['dname']);
 $username = $_POST['username'];
@@ -47,6 +50,16 @@ INSERT INTO invite(code) VALUES (UUID());
 $query= $conn->prepare($sql);
 //execute
 $query-> execute();
+
+
+$query= $conn->prepare("SELECT code FROM invite WHERE id = :id"); // prepare my sql query
+
+    $query->bindValue(':id', 1, PDO::PARAM_INT); // bind username
+    $query->execute(); // execute the query
+    $result=$query->fetch(); //fetch the results
+
+//store invite code in session variable
+$_SESSION["code"] = $result['code'];
 
 
 }
@@ -73,8 +86,6 @@ $config_file = fopen("config.php", "w") or die("Unable to open file!");
 $header = <<< 'EOD'
 <?php
 
-$servername = "localhost";
-
 try {
 EOD;
 $body =  '$conn= new PDO("mysql:host=' . $hostname . ';dbname=' . $database .  "\"" . ',' . "\"". $username  . "\"" .  ',' ."\"" . $password . "\"" . ');';
@@ -98,13 +109,17 @@ fclose($config_file);
 
 create_table();
 
+
+
+
+header("Location: /actions/register.php");
+
+unlink("install.php");
+
 }
 
 
 check_connection($hostname,$database,$username,$password);
 
-header("Location: index.php");
-
-unlink("install.php");
 
 ?>
