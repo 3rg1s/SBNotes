@@ -4,37 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBnotes Install</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
+
+
 <body>
 
-<h1>Welcome to Sbnotes installer</h1>
-    
 
+<div class="container">
+<div class="form-group">
+<h1>Welcome to Sbnotes installer</h1>
+<br>
 <form action="" method="POST">
   <label for="dbname">Database name:</label><br>
-  <input type="text" name="dname"><br><br>
+  <input type="text" class="form-control" name="dname"><br><br>
   <label for="hostname">hostname name:</label><br>
-  <input type="text" name="hostname"><br><br>
+  <input type="text" class="form-control" name="hostname"><br><br>
   <label for="password">User name:</label><br>
-  <input type="text" name="username" ><br><br>
+  <input type="text" class="form-control" name="username" ><br><br>
   <label for="password">Password:</label><br>
-  <input type="text" name="password"><br> <br>
-  <input type="submit" value="Submit">
+  <input type="text"  class="form-control" name="password"><br> <br>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
 
 </form> 
-
+</div>
 </body>
 </html>
 
 
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
-$hostname = $_POST['hostname'];
-$database = trim($_POST['dname']);
-$username = $_POST['username'];
-$password = $_POST['password'];
+
+
+$config = [
+    'host'=> trim($_POST['hostname']),
+    'database'=> trim($_POST['dname']),
+    'username' => trim($_POST['username']),
+    'password'=> trim($_POST['password'])
+];
 
 function create_table() {
 
@@ -65,30 +79,62 @@ $_SESSION["code"] = $result['code'];
 }
 
 
-function check_connection($hostname,$database,$username,$password) {
+function check_connection(array $config) {
+    if (empty($config['host'])) {
+        echo 'Host Missing';
+    }
+
+    if (empty($config['database'])) {
+        echo 'Database Missing';
+    }
+
+    if (empty($config['username'])) {
+        echo 'Username Missing';
+    }
+
+    if (empty($config['password'])) {
+        echo 'Password Missing';
+    }
+
     try {
-        $conn= new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+        $conn= new PDO("mysql:host={$config['host']};dbname={$config['database']}", $config['username'], $config['password']);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "\nWriting to config file\n";
-        write_config($hostname,$database,$username,$password);
-        }
-    catch(PDOException $e)
-        {
-        echo "Connection failed: " . $e->getMessage();
-        }
+        write_config($config['host'], $config['database'], $config['username'], $config['password']);
+    }catch(PDOException $e) {
+        switch ($e->getCode()) {
+            // Database Error Code
+            case 1049:
+                echo "Unknown database '{$config['database']}'";
+            break;
 
+            // Host Error Code
+            case 2002:
+                echo "Name or service not known '{$config['database']}'";
+            break;
+
+            // Access Denied Error Code
+            case 1045:
+                echo "Access denied";
+            break;
+            
+            default:
+            echo 'Something went really wrong!';
+            break;
+        }
+    }
 }
 
 
-function write_config($hostname,$database,$username,$password) {
+function write_config(array $config) {
 $config_file = fopen("config.php", "w") or die("Unable to open file!");
 $header = <<< 'EOD'
 <?php
 
 try {
 EOD;
-$body =  '$conn= new PDO("mysql:host=' . $hostname . ';dbname=' . $database .  "\"" . ',' . "\"". $username  . "\"" .  ',' ."\"" . $password . "\"" . ');';
+$body =  '$conn= new PDO("mysql:host=' . $config['host'] . ';dbname=' .  $config['database'] .  "\"" . ',' . "\"". $config['username']  . "\"" .  ',' ."\"" . $config['password'] . "\"" . ');';
 
 $footer = <<< 'EOD'
     // set the PDO error mode to exception
@@ -102,24 +148,15 @@ catch(PDOException $e)
 ?> 
 EOD;
 
-
 $final_config = $header . $body . $footer;
 fwrite($config_file, $final_config);
 fclose($config_file);
-
 create_table();
-
-
-
-
 header("Location: /actions/register.php");
-
 unlink("install.php");
 
 }
 
-
-check_connection($hostname,$database,$username,$password);
-
+check_connection($config);
 
 ?>
