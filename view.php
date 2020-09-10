@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js" integrity="sha256-xoJklEMhY9dP0n54rQEaE9VeRnBEHNSfyfHlKkr9KNk=" crossorigin="anonymous"></script>
 <style type="text/css">body{ font: 14px sans-serif; text-align: center; }</style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/dompurify@2.0.15/dist/purify.min.js"></script>
 </head>
 <body>
 
@@ -27,7 +28,8 @@
   function decrypt(encryptedtext){
   var pass = localStorage.getItem("Password");
   var decrypted = CryptoJS.AES.decrypt(encryptedtext, pass).toString(CryptoJS.enc.Utf8);
-  return decrypted;
+  var clean = DOMPurify.sanitize(decrypted);
+  return clean;
 }
 </script>
 
@@ -44,7 +46,6 @@ require_once "config.php";
 
 
 $query = $conn->prepare("SELECT * FROM snotes WHERE ownedby = :username");
-
 $query->bindValue(':username', $_SESSION['username'], PDO::PARAM_STR);
 $query->execute();
 $result= $query->fetchAll();
@@ -55,8 +56,8 @@ foreach($result as $note) {
   echo '<hr widht="75%">';
    echo "<script> document.write(decrypt(" . '"' . $note["note"]    . '"' . "));</script>";
    echo "<script> if(decrypt(" . '"' . $note["note"]    . '"' . ") == \"\"){<style>view_buttons</style>} else {}</script>";
-   echo "<td><a href='/actions/delete_note.php?id=" .$note['id']."'><button  name=\"ba\" type=\"button\" class=\"btn btn-danger\" style=\" float:right\" id=\"view_buttons\"  >Delete</button></a></td>";   
-   echo "<td><a href='/actions/autodelete.php?id=" .$note['id']."'><button  name=\"autodelete\" type=\"button\" class=\"btn btn-info\" style=\" float:left\" id=\"view_buttons\"  >Auto_Delete</button></a></td>";   
+   echo "<td><a href='actions/delete_note.php?id=" .$note['id']."'><button  name=\"ba\" type=\"button\" class=\"btn btn-danger\" style=\" float:right\" id=\"view_buttons\"  >Delete</button></a></td>";   
+   echo "<td><a href='actions/autodelete.php?id=" .$note['id']."'><button  name=\"autodelete\" type=\"button\" class=\"btn btn-info\" style=\" float:left\" id=\"view_buttons\"  >Auto_Delete</button></a></td>";   
    echo "<br>";
 
 }

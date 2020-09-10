@@ -9,7 +9,6 @@
 
 </head>
 
-
 <body>
 
 
@@ -34,14 +33,13 @@
 </body>
 </html>
 
-
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $config = [
     'host'=> trim($_POST['hostname']),
@@ -75,21 +73,23 @@ $query= $conn->prepare("SELECT code FROM invite WHERE id = :id"); // prepare my 
 //store invite code in session variable
 $_SESSION["code"] = $result['code'];
 
-
 }
 
 
 function check_connection(array $config) {
     if (empty($config['host'])) {
         echo 'Host Missing';
+        echo "<br>";
     }
 
     if (empty($config['database'])) {
         echo 'Database Missing';
+        echo "<br>";
     }
 
     if (empty($config['username'])) {
         echo 'Username Missing';
+        echo "<br>";
     }
 
     if (empty($config['password'])) {
@@ -100,8 +100,8 @@ function check_connection(array $config) {
         $conn= new PDO("mysql:host={$config['host']};dbname={$config['database']}", $config['username'], $config['password']);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "\nWriting to config file\n";
-        write_config($config['host'], $config['database'], $config['username'], $config['password']);
+        // echo "\nWriting to config file\n";
+        write_config($config);
     }catch(PDOException $e) {
         switch ($e->getCode()) {
             // Database Error Code
@@ -119,17 +119,18 @@ function check_connection(array $config) {
                 echo "Access denied";
             break;
             
-            default:
-            echo 'Something went really wrong!';
+            case "42S01":
+                echo "The database already exists";
             break;
         }
     }
 }
 
 
-function write_config(array $config) {
+function write_config(Array $config) {
 $config_file = fopen("config.php", "w") or die("Unable to open file!");
 $header = <<< 'EOD'
+
 <?php
 
 try {
@@ -148,15 +149,14 @@ catch(PDOException $e)
 ?> 
 EOD;
 
-$final_config = $header . $body . $footer;
+$final_config = $creds . $header . $body . $footer;
 fwrite($config_file, $final_config);
 fclose($config_file);
 create_table();
-header("Location: /actions/register.php");
+header( "Location: actions/register.php");
 unlink("install.php");
-
 }
-
 check_connection($config);
+}
 
 ?>

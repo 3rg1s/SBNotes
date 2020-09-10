@@ -8,6 +8,8 @@ session_start();
 $username = $_SESSION["username"];
 $note = $_POST["note"];
 
+$note = htmlspecialchars($note, ENT_QUOTES, 'UTF-8');
+
 if($note) {
 require_once "../config.php";
 

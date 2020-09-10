@@ -60,10 +60,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	    $query->execute();
 	    //Fetchall not working, I wasted more than 1 hour here.
 	    $result = $query->fetch();
-	if($result['used'] == 0 && !empty(trim($result['code']))) {
+	if($result['used'] == 0 && !empty(trim($result['code'])) && empty($username_err)) {
 		//Set current password as used now
 		$query= $conn->prepare('UPDATE invite set used = "1", ownedby = :username where code = :code');
-	    	$query->bindValue(':code', trim($_POST['invite']), PDO::PARAM_STR);
+	    $query->bindValue(':code', trim($_POST['invite']), PDO::PARAM_STR);
 		$query->bindValue(':username', $username, PDO::PARAM_STR);
 		$query->execute();
 		} else {
@@ -181,7 +181,7 @@ if(invitecode !== "") {
     Swal.fire({
   position: 'top-end',
   type: 'info',
-  title: 'Your work has been saved',
+  title: 'Click COPY to copy your invite code',
   confirmButtonText: 'COPY',
   showConfirmButton: true
 }).then((result) => {

@@ -12,7 +12,7 @@ session_start();
 <script type="text/javascript">
     function confirmcreate(){
                 $.ajax({
-                url: "/actions/generatecode.php",
+                url: "actions/generatecode.php",
                 type: "GET",
                 success: function(){
                     swal.fire({
@@ -107,7 +107,7 @@ foreach($result as $row) {
     echo "<td id=\"used\">" . $row["used"]. "</td>";
     echo "<td id=\"code\">". $row["code"]. "</td>";
 	echo "<td id=\"ownedby\">" . $row["ownedby"]. "</td>";
-	echo "<td><a href='/actions/delete.php?id=" .$row['code']."'><button type=\"button\" class=\"btn btn-danger\">Delete</button></a></td>";
+	echo "<td><a href='actions/delete.php?id=" .$row['code']."'><button type=\"button\" class=\"btn btn-danger\">Delete</button></a></td>";
 	echo "</tr>";
 }
 }else{

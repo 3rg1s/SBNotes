@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$_SESSION["username"] = $result['username'];
 
 			//redirect to user welcome page
-			header("location: /actions/setpassword.php");
+			header("location: actions/setpassword.php");
 		} else {
 			$error = "Invalid credentials";
 		}
@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   <title>Login</title>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/particles_css.css">
+<link rel="stylesheet" href="css/particles_css.css">
 <style>
 html, body { height:100%; }
 
@@ -119,7 +119,7 @@ height: 100%;
 </div>
 </section>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>particlesJS.load('particles-js', '/css/particles.json')</script>
+<script>particlesJS.load('particles-js', 'css/particles.json')</script>
 <script>localStorage.removeItem('Password'); // Destroy localstorage,if there is any left from previous user, not loged out using logout button.</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>

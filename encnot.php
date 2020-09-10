@@ -35,7 +35,7 @@ session_start();
 
  
 <script type="text/javascript">
-if (localStorage.getItem('Password') == null) {window.location = "/actions/setpassword.php";} //If password is nt set redirect to setpassword
+if (localStorage.getItem('Password') == null) {window.location = "actions/setpassword.php";} //If password is nt set redirect to setpassword
 
 function encrypt(){
 

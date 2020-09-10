@@ -2,6 +2,9 @@
 
 session_start();
 
+require_once "../config.php"; 
+
+
 // Check if the user is logged in, otherwise redirect to login page                                                                                                                                                                           
  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){                                                                                                                                                                         
      header("location: ../login.php");                                                                                                                                                                                                                  exit;                                                                                                                                                                                                                                     }
@@ -15,7 +18,7 @@ if($_POST['time']!="") {
 
 if($_POST['time'] >= 1 && $_POST['time'] <= 60) {	
 
-//Function to stop  after an error occurs and set autodeleted to 0 so when it goes back to view.php it throwns an error
+//Function to stop after an error occurs and set autodeleted to 0 so when it goes back to view.php it throwns an error
 function seterror() {
 	$_SESSION['autodeleted'] = "0";
 	header("Location: ../view.php");
@@ -27,7 +30,7 @@ $myfile = fopen($filename,  "x+") or seterror();
 	
 
 $text1 = "sleep " . $_POST['time'] . "m\n";
-$text2 = "mysql -u admin -ppassword! -e 'use proj;DELETE FROM snotes WHERE id =";
+$text2 = "mysql -u $user -p $pass -e 'use proj;DELETE FROM snotes WHERE id =";
 $text3 = $id;
 $text4 = " and ";
 $text5 = " ownedby= ";
@@ -59,11 +62,9 @@ header("Location: ../view.php");
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">    
         <title>Set Timer</title>
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<script src="/js/jquery.min.js"></script>
-
-
-  <script src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></script>
 </head>
 <body>
 <?php
