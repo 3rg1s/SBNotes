@@ -149,7 +149,7 @@ catch(PDOException $e)
 ?> 
 EOD;
 
-$final_config = $creds . $header . $body . $footer;
+$final_config =  $header . $body . $footer;
 fwrite($config_file, $final_config);
 fclose($config_file);
 create_table();
