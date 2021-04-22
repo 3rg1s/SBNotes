@@ -4,6 +4,13 @@ Secure Notes Are hard
 ----------------
 ![Website Status](https://img.shields.io/website?style=for-the-badge&url=https://sbn.0x0byt3.com)
 
+# Requirements
+
+* Apache2/nginx
+* Php
+* Mysql
+
+
 
 # How to set up 💽 
 
