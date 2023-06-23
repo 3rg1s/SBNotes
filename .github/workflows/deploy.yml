@@ -1,4 +1,4 @@
-name: Deploy to Hostinh
+name: Deploy to Hosting
 on:
   push:
     branches:
