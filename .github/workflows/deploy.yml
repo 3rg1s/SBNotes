@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to Hosting
         run: |
-          ssh -p ${{secrets.HOST_PORT}} ${{ secrets.HOST_USER }}@${{ secrets.HOST_IP }} "cd ${{ secrets.TARGET_DIRECTORY }} && git pull"
+          ssh -vvv -p ${{secrets.HOST_PORT}} ${{ secrets.HOST_USER }}@${{ secrets.HOST_IP }} "cd ${{ secrets.TARGET_DIRECTORY }} && git pull"
         env:
           HOST_USER: ${{ secrets.HOST_USER }}
           HOST_IP: ${{ secrets.HOST_IP }}
