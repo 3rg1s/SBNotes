@@ -21,4 +21,10 @@ jobs:
         run: composer install --no-dev --prefer-dist --optimize-autoloader
 
       - name: Deploy to Hosting
-        run: php deploy.php
+        run: |
+          ssh -P ${{secrets.HOST_PORT}} ${{ secrets.HOST_USER }}@${{ secrets.HOST_IP }} "cd ${{ secrets.TARGET_DIRECTORY }} && git pull"
+        env:
+          HOST_USER: ${{ secrets.HOST_USER }}
+          HOST_IP: ${{ secrets.HOST_IP }}
+          HOST_PORT: ${{ secrets.HOST_PORT }}
+          TARGET_DIRECTORY: ${{ secrets.TARGET_DIRECTORY }}
