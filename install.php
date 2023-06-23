@@ -28,7 +28,7 @@
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 
-</form> 
+</form>
 </div>
 </body>
 </html>
@@ -48,7 +48,7 @@ $config = [
     'password'=> trim($_POST['password'])
 ];
 
-function create_table() {
+function createTable() {
 
 require_once "config.php";
 
@@ -76,7 +76,7 @@ $_SESSION["code"] = $result['code'];
 }
 
 
-function check_connection(array $config) {
+function checkConnection(array $config) {
     if (empty($config['host'])) {
         echo 'Host Missing';
         echo "<br>";
@@ -152,11 +152,11 @@ EOD;
 $final_config =  $header . $body . $footer;
 fwrite($config_file, $final_config);
 fclose($config_file);
-create_table();
+createTable();
 header( "Location: actions/register.php");
 unlink("install.php");
 }
-check_connection($config);
+checkConnection($config);
 }
 
 ?>

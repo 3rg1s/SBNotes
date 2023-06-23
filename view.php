@@ -37,9 +37,11 @@
 
 session_start();
 
-// Check if the user is logged in, otherwise redirect to login page                                                                                                                                                                           
+// Check if the user is logged in, otherwise redirect to login page
  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-     header("location: ../login.php");                                                                                                                                                                                                                  exit;                                                                                                                                                                                                                                     }
+     header("location: ../login.php");
+     exit;
+    }
 
 // Include config file
 require_once "config.php";
@@ -147,5 +149,3 @@ unset($_SESSION['autodeleted']);
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
