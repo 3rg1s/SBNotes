@@ -1,0 +1,6 @@
+# Ignore Compose Folder
+vendor
+
+# Ignore Sftp config
+
+sftp.json
