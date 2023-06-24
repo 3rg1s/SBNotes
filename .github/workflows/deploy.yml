@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: composer install --no-dev --prefer-dist --optimize-autoloader
 
+      - name: List files and folders
+        run: ls -la
+
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
