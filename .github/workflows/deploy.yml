@@ -27,6 +27,8 @@ jobs:
           name: id_rsa # optional
           known_hosts: ${{ secrets.SSH_HOST }}
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+      - name: rsync over SSH
+        run: rsync --rsh='ssh -p${{ secrets.HOST_PORT }}' /etc/passwd ${{ secrets.HOST_USER }}@${{ secrets.145.14.156.206 }}:/${{ secrets.TARGET_DIRECTORY }}
 
       - name: Deploy to Hosting
         run: |
