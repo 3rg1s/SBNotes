@@ -34,7 +34,7 @@ jobs:
           known_hosts: ${{ secrets.SSH_HOST }}
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
       - name: rsync over SSH
-        run: rsync --rsh='ssh -p${{ secrets.HOST_PORT }}' /etc/passwd ${{ secrets.HOST_USER }}@${{ secrets.HOST_IP }}:/${{ secrets.TARGET_DIRECTORY }}
+        run: rsync -ra --rsh='ssh -p${{ secrets.HOST_PORT }}' * ${{ secrets.HOST_USER }}@${{ secrets.HOST_IP }}:/${{ secrets.TARGET_DIRECTORY }}
 
       - name: Deploy to Hosting
         run: |
