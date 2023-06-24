@@ -2,10 +2,7 @@ name: Deploy to Hosting
 on:
   push:
     branches:
-      - "*"
-  pull_request:
-    branches:
-      - "*"
+      - "master"
 
 jobs:
   deploy:
