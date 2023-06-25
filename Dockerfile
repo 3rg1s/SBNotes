@@ -1,12 +1,17 @@
 # Use an official PHP runtime as the base image
 FROM php:7.4-apache
 
+RUN addgroup nonroot \
+    && adduser -S nonroot -G nonroot
+
+USER nonroot
+
 # Set the working directory in the container
 WORKDIR /var/www/html
 
 # Install Apache2 and PHP extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql
-RUN apt-get update && apt-get upgrade -y && apt-get install -y default-mysql-client
+RUN apt-get update && apt-get upgrade -y && apt-get install  -y --no-install-recommends default-mysql-client
 
 # Copy the PHP project files to the container
 COPY . .
