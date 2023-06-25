@@ -2,7 +2,6 @@
 
 ## Secure Notes Are hard
 
-![Website Status](https://img.shields.io/website?style=for-the-badge&url=https://dsbnotes.salinaridev.com/)
 [![Deploy to Hosting](https://github.com/3rg1s/SBNotes/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/3rg1s/SBNotes/actions/workflows/deploy.yml)
 
 # Requirements
